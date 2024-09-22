@@ -13,11 +13,11 @@ float a3 = 0.0f, b3 = 0.0f, c3 = 0.0f, d3 = 0.0f;
 float x1 = 0.0f, x2 = 0.0f, x3 = 0.0f;
 float x1_prev = 0.0f, x2_prev = 0.0f, x3_prev = 0.0f;
 int n = 0;
-const float E = 0.00005f;
+const float E = 0.0005f;
 
 int main(void) {
 
-  /*Gauss Seid Method*/
+  /*Gauss Saidel Method*/
 
   printf("input linear equation in a1x1 + b1x2 + c1x3 = d1 format (spaces "
          "between four numbers): ");
@@ -34,9 +34,9 @@ int main(void) {
 
   for (int i = 1; i <= n; i++) {
 
-    x1 = (d1 - (b1 * x2_prev) - (c1 * x3_prev)) / a1;
-    x2 = (d2 - (c2 * x3_prev) - (a2 * x1_prev)) / b2;
-    x3 = (d3 - (a3 * x1_prev) - (b3 * x2_prev)) / c3;
+    x1 = (d1 - (b1 * x2) - (c1 * x3)) / a1;
+    x2 = (d2 - (c2 * x3) - (a2 * x1)) / b2;
+    x3 = (d3 - (a3 * x1) - (b3 * x2)) / c3;
 
     printf("\nIteration no %d:\tx1 = %f, x2 = %f, x3 = %f\n", i, x1, x2, x3);
 
@@ -45,6 +45,10 @@ int main(void) {
 
       printf("\n# ANSWER x1 = %f, x2 = %f, x3 = %f", x1, x2, x3);
       break;
+    } else {
+      x1_prev = x1;
+      x2_prev = x2;
+      x3_prev = x3;
     }
   }
   printf("\n\nProgram Completed");
