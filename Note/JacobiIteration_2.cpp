@@ -14,21 +14,22 @@ using namespace std;
 #define eq2 M[1]
 #define eq3 M[2]
 
-// example
-// a1 = 2.0f, b1 = 1.0f, c1 = 1.0f, d1 = 5.0f;
-// a2 = 3.0f, b2 = 5.0f, c2 = 2.0f, d2 = 15.0f;
-// a3 = 2.0f, b3 = 1.0f, c3 = 4.0f, d3 = 8.0f;
+/* EXAMPLE
+2x1+x2+x3=5
+3x1+5x2+2x3=15
+2x1+x2+4x3=8
+200
+*/
 
-// coEfficientMatrix[num_equations][num_coEfficients]
-int M[3][4]; // coEfficientMatrix
+float M[3][4]; /*coEfficientMatrix[num_equations][num_coEfficients]*/
 
 float x1 = 0.0f, x2 = 0.0f, x3 = 0.0f;
 float x1_prev = 0.0f, x2_prev = 0.0f, x3_prev = 0.0f;
-int n = 0;
+int n = 0; /*iteration limit*/
 const float E = 0.00005f;
 
 void take_three_input() {
-  // test case -3x1+55x2-2x3=-5
+
   for (int eq_no = 0; eq_no < 3; eq_no++) { // take three equation input
 
     char input_eq[40] = {0};
@@ -63,7 +64,7 @@ void take_three_input() {
           strncpy(co_eff, &input_eq[prev_idx], co_eff_len);
         }
 
-        M[eq_no][abcd] = (float)atoi(co_eff);
+        M[eq_no][abcd] = atof(co_eff);
 
         abcd++;
         prev_idx = i + 2;
@@ -78,7 +79,7 @@ void take_three_input() {
 int main(void) {
 
   printf("input three equations (in x1+x2-2x3=-5 style, as a string) :\n");
-  take_three_input(); // limitation: spaces,float/double will not work
+  take_three_input(); // limitation: spaces will not work
 
   printf("input iteration limit : ");
   scanf("%d", &n);
@@ -95,6 +96,7 @@ int main(void) {
 
     if (abs(x1 - x1_prev) < E && abs(x2 - x2_prev) < E &&
         abs(x3 - x3_prev) < E) {
+      /*checking absolute error within specified range*/
 
       printf("\n# ANSWER x1 = %f, x2 = %f, x3 = %f", x1, x2, x3);
       break;
@@ -106,4 +108,4 @@ int main(void) {
     }
   }
   printf("\n\nProgram Completed");
-} // INCOMPLETE
+} // COMPLETE
