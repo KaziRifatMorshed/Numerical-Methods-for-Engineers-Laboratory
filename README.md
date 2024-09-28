@@ -4,7 +4,7 @@ Numerical Methods for Engineers Laboratory Course code repo of Student ID 230220
 
 ### Course Details
 
-Course Title: Numerical Methods for Engineers Laboratory
+Course Title: Numerical Methods for Engineers Laboratory\
 Course Code: 0714 02 CSE 2104
 
 ## Course Coordinator
