@@ -69,7 +69,7 @@ void take_three_input() {
         abcd++;
         prev_idx = i + 2;
         i++; /*to skip variable name (x1, x2, x3)*/
-      }
+      } /*end of "if" block*/
     }
 
     getchar(); // dummy
