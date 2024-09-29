@@ -24,7 +24,7 @@ int main(void) {
     printf("x_%d = %f\n", i, x_n);
 
     if (fabs(x_n - x_n_prev) < E) {
-      printf("Root Found.\nRoot is %f", x_n);
+      printf("\nRoot Found.\nRoot is %f", x_n);
       break;
     }
   }
