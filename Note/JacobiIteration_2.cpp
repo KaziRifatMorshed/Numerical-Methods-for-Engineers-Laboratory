@@ -1,18 +1,4 @@
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <stdio.h>
-#include <strings.h>
-using namespace std;
-
-#define a 0
-#define b 1
-#define c 2
-#define d 3
-
-#define eq1 M[0]
-#define eq2 M[1]
-#define eq3 M[2]
+#include "../header/NumericalMethodsHeaderKaziRifat.h"
 
 /* EXAMPLE
 2x1+x2+x3=5
@@ -28,64 +14,7 @@ float x1_prev = 0.0f, x2_prev = 0.0f, x3_prev = 0.0f;
 int n = 0; /*iteration limit*/
 const float E = 0.00005f;
 
-void take_three_input() {
-
-  for (int eq_no = 0; eq_no < 3; eq_no++) { // take three equation input
-
-    char input_eq[40] = {0};
-    int abcd = 0; // co-efficient tracker within row of 2D array
-    scanf("%[^\n]", input_eq);
-
-    int prev_idx = 0, str_len = strlen(input_eq);
-    /* prev_idx points starting of a substring holding co-efficient*/
-
-    for (int i = 0; i < str_len; i++) { // catch all coefficients
-
-      if (input_eq[i] == 'x' || input_eq[i] == '=') {
-
-        char co_eff[10] = "1";
-
-        if (input_eq[i] == '=') { /* edge case */
-          prev_idx++;  /*starting of substring will be position after = sign*/
-          i = str_len; /*ending of substring will be last of the string*/
-        }
-
-        int co_eff_len = (i - prev_idx);
-
-        /* case like x1+x2+x3=5*/
-        if (co_eff_len == 1 && input_eq[prev_idx] == '+') {
-          strncpy(co_eff, "1", 1);
-
-          /* case like -x1-x2-x3=-5*/
-        } else if (co_eff_len == 1 && input_eq[prev_idx] == '-') {
-          strncpy(co_eff, "-1", 2);
-
-        } else {
-          strncpy(co_eff, &input_eq[prev_idx], co_eff_len);
-        }
-
-        M[eq_no][abcd] = atof(co_eff);
-
-        abcd++;
-        prev_idx = i + 2;
-        i++; /*to skip variable name (x1, x2, x3)*/
-      } /*end of "if" block*/
-    }
-
-    getchar(); // dummy
-  }
-} // working
-
-int main(void) {
-
-  printf("input three equations (in x1+x2-2x3=-5 style, as a string) :\n");
-  take_three_input(); // limitation: spaces will not work
-
-  printf("input iteration limit : ");
-  scanf("%d", &n);
-
-  /*Jacobi Iteration Method*/
-
+void JacobiIterationOperation() {
   for (int i = 1; i <= n; i++) {
 
     x1 = (eq1[d] - (eq1[b] * x2_prev) - (eq1[c] * x3_prev)) / eq1[a];
@@ -107,5 +36,18 @@ int main(void) {
       x3_prev = x3;
     }
   }
+}
+
+int main(void) {
+
+  printf("input three equations :\n");
+  take_three_input(M);
+
+  printf("input iteration limit : ");
+  scanf("%d", &n);
+
+  /*Jacobi Iteration Method*/
+  JacobiIterationOperation();
+
   printf("\n\nProgram Completed");
 } // COMPLETE
