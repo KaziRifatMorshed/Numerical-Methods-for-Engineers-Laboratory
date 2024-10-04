@@ -26,15 +26,27 @@ x1+3x2+x3=10
 
 float M[3][4]; /*coEfficientMatrix[num_equations][num_coEfficients]*/
 int n = 3;     // num of equations
-float x1 = 0.0f, x2 = 0.0f, x3 = 0.0f;
+
+void remove_all_spaces(char *str) {
+  for (int i = 0; str[i] != '\0'; i++) {
+    if (str[i] == ' ') {
+      for (int j = i; str[j] != '\0'; j++) {
+        str[j] = str[j + 1];
+      }
+    }
+  }
+}
 
 void take_three_input() {
 
-  for (int eq_no = 0; eq_no < n; eq_no++) { // take three equation input
+  for (int eq_no = 0; eq_no < 3; eq_no++) { // take three equation input
 
     char input_eq[40] = {0};
+
     int abcd = 0; // co-efficient tracker within row of 2D array
     scanf("%[^\n]", input_eq);
+    remove_all_spaces(input_eq);
+    printf("%s\n", input_eq);
 
     int prev_idx = 0, str_len = strlen(input_eq);
     /* prev_idx points starting of a substring holding co-efficient*/
@@ -74,60 +86,22 @@ void take_three_input() {
 
     getchar(); // dummy
   }
-} // working
+} //
 
 void print_three_equations() {
-  printf("Printing all eq : \n");
+  // printf("Printing all eq : \n");
   for (int i = 0; i < n; i++) {
     printf("%.2f\t%.2f\t%.2f\t= %.2f\n", M[i][a], M[i][b], M[i][c], M[i][d]);
   }
   // printf("Printing all eq COMPLETED \n");
 } // working
 
-void basic_gauss_operation() {
-  for (int i = 0; i < (n - 1); i++) {
-
-    float pivot_value = M[i][i];
-
-    for (int j = 0; j < n; j++) {
-
-      // printf("i = %d , j = %d\n", i, j);
-      float corres = M[j][i]; /*correspondent_position_to_pivot*/
-      if (i >= j || corres == 0.0f) {
-        continue;
-      }
-      float factor = pivot_value / corres;
-
-      /*now, loop for subtracting one eq from another*/
-      for (int k = a; k <= d; k++) {
-        M[j][k] = M[i][k] - (factor * M[j][k]);
-      }
-      // print_three_equations(); /*for debugging purpose*/
-    }
-  }
-
-} // DONE
-
-void backtracking_basic_gauss_elimination() {
-  x3 = eq3[d] / eq3[c];
-  x2 = (eq2[d] - (x3 * eq2[c])) / eq2[b];
-  x1 = (eq1[d] - (x3 * eq1[c]) - (x2 * eq1[b])) / eq1[a];
-
-  printf("# RESULT : x1 = %.2f, x2 = %.2f, x3 = %.2f\n", x1, x2, x3);
-}
-
 int main(void) {
 
   printf("input three equations (in x1+x2-2x3=-5 style, as a string) :\n");
   take_three_input(); // limitation: spaces will not work
 
-  /*Basic Gauss Elimination Method*/
-
-  basic_gauss_operation();
-
   print_three_equations();
-
-  backtracking_basic_gauss_elimination();
 
   printf("\n\nProgram Completed");
 } // DONE
