@@ -1,4 +1,5 @@
 #include <cctype>
+#include <cmath>
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -13,22 +14,7 @@ using namespace std;
 #define eq2 M[1]
 #define eq3 M[2]
 
-/* EXAMPLE
-Basic Gauss Example
-3x1+6x2+x3=16
-2x1+4x2+3x3=13
-x1+3x2+2x3=9
-
-Gauss Jordan Example
-2x1+4x2-6x3=-8
-x1+3x2+x3=10
-2x1-4x2-2x3=-12
-*/
-
-float M[3][4]; /*coEfficientMatrix[num_equations][num_coEfficients]*/
-int n = 3;     // num of equations
-
-void remove_all_spaces(char *str) {
+inline void remove_all_spaces(char *str) {
   for (int i = 0; str[i] != '\0'; i++) {
     if (str[i] == ' ') {
       for (int j = i; str[j] != '\0'; j++) {
@@ -38,7 +24,7 @@ void remove_all_spaces(char *str) {
   }
 }
 
-void take_three_input() {
+inline void take_three_input(float M[][4]) {
 
   for (int eq_no = 0; eq_no < 3; eq_no++) { // take three equation input
 
@@ -94,20 +80,10 @@ void take_three_input() {
   }
 }
 
-void print_three_equations() {
+inline void print_three_equations(float M[][4]) {
   // printf("Printing all eq : \n");
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < 3; i++) {
     printf("%.2f\t%.2f\t%.2f\t= %.2f\n", M[i][a], M[i][b], M[i][c], M[i][d]);
   }
   // printf("Printing all eq COMPLETED \n");
 } // working
-
-int main(void) {
-
-  printf("input three equations (in x1+x2-2x3=-5 style, as a string) :\n");
-  take_three_input();
-
-  print_three_equations();
-
-  printf("\n\nProgram Completed");
-} //
