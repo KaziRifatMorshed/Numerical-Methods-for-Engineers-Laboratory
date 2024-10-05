@@ -10,6 +10,11 @@ Gauss Jordan Example
 2x1+4x2-6x3=-8
 x1+3x2+x3=10
 2x1-4x2-2x3=-12
+
+4x + 10y + 30z = 62
+10x + 30y + 100z = 190
+30x + 100y + 354z = 644
+3, 2, 1
 */
 
 float M[3][4]; /*coEfficientMatrix[num_equations][num_coEfficients]*/
@@ -51,7 +56,7 @@ int main(void) {
 
   gauss_jordan_operation();
 
-  print_three_equations(M);
+  // print_three_equations(M);
 
   printf("# RESULT : x1 = %.2f, x2 = %.2f, x3 = %.2f\n", eq1[d], eq2[d],
          eq3[d]);

@@ -57,7 +57,7 @@ int main(void) {
 
   basic_gauss_operation();
 
-  print_three_equations(M);
+  // print_three_equations(M);
 
   backtracking_basic_gauss_elimination();
 

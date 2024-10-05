@@ -37,7 +37,7 @@ using namespace std;
 #define eq1 M[0]
 #define eq2 M[1]
 #define eq3 M[2]
-/*Benefit eq1[a] means first coefficient of first linear equation*/
+/*Benefit: eq1[a] means first coefficient of first linear equation*/
 
 inline void remove_all_spaces(char *str) {
   for (int i = 0; str[i] != '\0'; i++) {
@@ -73,8 +73,9 @@ inline void take_three_input(float M[][4]) {
          * from atof() function in case like x1-x2+x3=10*/
 
         if (input_eq[i] == '=') { /* edge case */
-          prev_idx++;  /*starting of substring will be position after = sign*/
-          i = str_len; /*ending of substring will be last of the string*/
+          // prev_idx++; // BUGGY LINE
+          prev_idx = i + 1; /*start of substring will be position after = sign*/
+          i = str_len;      /*ending of substring will be last of the string*/
         }
 
         int co_eff_len = (i - prev_idx);
