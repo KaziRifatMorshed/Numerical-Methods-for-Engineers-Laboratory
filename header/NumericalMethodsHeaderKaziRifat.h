@@ -111,4 +111,8 @@ inline void print_three_equations(float M[][4]) {
     printf("%.2f\t%.2f\t%.2f\t= %.2f\n", M[i][a], M[i][b], M[i][c], M[i][d]);
   }
   // printf("Printing all eq COMPLETED \n");
-} // WORKING
+} // DONE
+
+inline void polynomial_input() {
+  // planned
+} // incomplete
