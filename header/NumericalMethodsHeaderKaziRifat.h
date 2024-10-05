@@ -73,7 +73,6 @@ inline void take_three_input(float M[][4]) {
          * from atof() function in case like x1-x2+x3=10*/
 
         if (input_eq[i] == '=') { /* edge case */
-          // prev_idx++; // BUGGY LINE
           prev_idx = i + 1; /*start of substring will be position after = sign*/
           i = str_len;      /*ending of substring will be last of the string*/
         }
