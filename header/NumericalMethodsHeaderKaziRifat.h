@@ -22,6 +22,8 @@ Limitations:
 x, then y, and then z (in order) [you cannot break this order]
 */
 
+// #include "../header/NumericalMethodsHeaderKaziRifat.h"
+
 #include <cctype>
 #include <cmath>
 #include <cstdio>
