@@ -11,12 +11,12 @@ hold on;
 grid on;
 
 % High Pass Filter
-xlabel('f (Hz)')
-ylabel('20 log(V_o/V_in)')
-title('Frequency Response of HPF of Order 1 to 5');
+xlabel('f (Hz) (Logarithmic Scale)')
+ylabel('20 log(V_o/V_in) (Logarithmic Scale)')
+title('Frequency Response of a HPF from 1st to 5th order');
 
 for i = 1:5
-    V_out_by_V_in_HPF = A_F ./ sqrt(1 + ((f_c / f) .^ (2 * i)));
+    V_out_by_V_in_HPF = A_F ./ sqrt(1 + ((f_c ./ f) .^ (2 * i)))
     y_axis_HPF = 20 * log10(V_out_by_V_in_HPF);
     loglog(f, y_axis_HPF, colors(i));
 end

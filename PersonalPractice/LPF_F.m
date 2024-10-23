@@ -11,12 +11,12 @@ hold on;
 grid on;
 
 % Low Pass Filter
-xlabel('f (Hz)')
-ylabel('20 log(V_o/V_in)')
-title('Frequency Response of LPF of Order 1 to 5');
+xlabel('f (Hz) (Logarithmic Scale)')
+ylabel('20 log(V_o/V_in) (Logarithmic Scale)')
+title('Frequency Response of a LPF from 1st to 5th order');
 
 for i = 1:5
-    V_out_by_V_in_LPF = A_F ./ sqrt(1 + ((f / f_c) .^ (2 * i)));
+    V_out_by_V_in_LPF = A_F ./ sqrt(1 + ((f ./ f_c) .^ (2 * i)));
     y_axis_LPF = 20 * log10(V_out_by_V_in_LPF);
     loglog(f, y_axis_LPF, colors(i));
 end
