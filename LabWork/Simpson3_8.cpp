@@ -12,12 +12,13 @@ int main(void) {
   scanf("%f", &h);
 
   float x = low_limit;
-  for (int i = 1; x <= upper_limit; x += h, i++) {
-    if (i == 1 || x == upper_limit) {
+  for (int i = 0; x <= upper_limit; x += h, i++) {
+    if (i == 0 || x == upper_limit) {
       result += f(x);
     } else if (i % 3 == 0) {
       result += 2 * f(x);
-    } else if (i % 3 != 0) {
+    } else {
+      // } else if (i % 3 != 0) {
       result += 3 * f(x);
     }
   }

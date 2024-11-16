@@ -1,4 +1,5 @@
 #include <cmath>
+#include <cstdio>
 float coefficients[4];
 #define co coefficients
 
@@ -9,7 +10,6 @@ float coefficients[4];
 
 float h = 0.0f, y_first = 0.0f, y_prev = 0.0f, end = 0.0f;
 
-#include <cstdio>
 float f(float x) {
   return co[a] * std::pow(x, 3) + co[b] * pow(x, 2) + co[c] * x + co[d];
 }
@@ -29,7 +29,7 @@ void euler() {
       continue;
     }
 
-    y_prev += h * f(i - h);
+    y_prev += h * f(i - h); // -------------------------- CAREFUL
     printf("y(%0.2f) = %0.4f\n", i, y_prev);
   }
 }
@@ -48,5 +48,5 @@ int main(void) {
   scanf("%f", &end);
 
   euler();
-  //
+  // end
 }

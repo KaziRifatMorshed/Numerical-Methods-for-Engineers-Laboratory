@@ -39,6 +39,7 @@ void take_eq_input() {
     }
   }
 
+
   int prev_idx = 0;
   char coefficient[] = {0};
   for (int j = 0; str[j - 2] != '\0'; j++) {

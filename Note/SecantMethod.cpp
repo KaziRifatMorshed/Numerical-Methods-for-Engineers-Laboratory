@@ -21,7 +21,7 @@ int main(void) {
     x3 = (x1 - ((f(x1) * (x2 - x1)) / (f(x2) - f(x1))));
     printf("\nIteration no %d: \n\tx3 = %f", i, x3);
 
-    if (std::abs((x3 - x2) / x3) < E) {
+    if (std::fabs((x3 - x2) / x3) < E) {
       printf("\n# root found\n# root is %f", x3);
       break;
     } else {

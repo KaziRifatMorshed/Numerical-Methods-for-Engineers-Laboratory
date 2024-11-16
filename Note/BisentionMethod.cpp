@@ -14,8 +14,8 @@ int main(void) {
   printf("input x1 and x2 (with spaces) : "), scanf("%f %f", &x1, &x2);
 
   printf("Specify iteration number (input 0 (zero) if you do not want to "
-         "specify iteration) : "),
-      scanf("%d", &n);
+         "specify iteration) : ");
+  scanf("%d", &n);
 
   for (int i = 1; i <= n || n == 0; i++) {
     x0 = ((x1 + x2) / 2);
