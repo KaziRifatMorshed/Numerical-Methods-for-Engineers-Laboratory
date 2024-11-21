@@ -5,13 +5,13 @@ double sum_x = 0, sum_y = 0, sum_x_sq = 0, sum_x_y = 0;
 int n = 0; /*quantity of data*/
 
 int main(void) {
-  //   printf("Input quantity of data : ");
+  printf("Input quantity of data : ");
   scanf("%d", &n);
 
-  //   printf("\nInput  x and y (with spaces) : ");
+  printf("Input  x and y (with spaces) : ");
 
   for (int i = 1; i <= n; i++) { /*takin inputs*/
-    // printf("\ninput no %d : ", i);
+    printf("input no %d : ", i);
     double x = 0, y = 0;
     scanf("%lf %lf", &x, &y);
 

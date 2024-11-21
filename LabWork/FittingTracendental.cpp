@@ -7,13 +7,12 @@ double sum_x = 0, sum_y = 0, sum_x_sq = 0, sum_x_y = 0;
 int n = 0; /*quantity of data*/
 
 int main(void) {
-  //   printf("Input quantity of data : ");
+  printf("Input quantity of data : ");
   scanf("%d", &n);
+  printf("Input  x and y (with spaces) : \n");
 
-  //   printf("\nInput  x and y (with spaces) : ");
-
-  for (int i = 1; i <= n; i++) { /*takin inputs*/
-    // printf("\ninput no %d : ", i);
+  for (int i = 1; i <= n; i++) { /*taking inputs*/
+    printf("input no %d : ", i);
     double x = 0, y = 0;
     scanf("%lf %lf", &x, &y);
     x = std::log(x);
@@ -29,5 +28,5 @@ int main(void) {
   double a = ((sum_y / n) - (b * sum_x) / n);
   a = exp(a);
 
-  printf("Equation is : y = %2.3lf * x^(%2.3lf)", a, b);
+  printf("Equation is : y = %2.3lf * x^(%2.3lf)\n\n", a, b);
 }

@@ -1,20 +1,24 @@
 #include <cstdio>
 #include <cstdlib>
 
+/*
 float a = 1.0f, b = -4.0f, c = -10.0f;
 float x1 = 4.0f, x2 = 2.0f, x3 = 0.0f;
+*/
+float a = 0.0f, b = 0.0f, c = 0.0f;
+float x1 = 0.0f, x2 = 0.0f, x3 = 0.0f;
 const float E = 0.0005f;
 
 float f(float num) { return ((a * num * num) + (b * num) + c); }
 
 int main(void) {
 
-  //   printf("Evaluating the root of f(x) = ax^2 + bx + c in Secant "
-  //          "Method\nPlease input a, b, c (with spaces) : ");
-  //   scanf("%f %f %f", &a, &b, &c);
+  printf("Evaluating the root of f(x) = ax^2 + bx + c in Secant "
+         "Method\nPlease input a, b, c (with spaces) : ");
+  scanf("%f %f %f", &a, &b, &c);
 
-  //   printf("input x1 and x2 (with spaces) : ");
-  //   scanf("%f %f", &x1, &x2);
+  printf("input x1 and x2 (with spaces) : ");
+  scanf("%f %f", &x1, &x2);
 
   for (int i = 1;; i++) {
 

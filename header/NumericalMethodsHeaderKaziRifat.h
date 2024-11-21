@@ -60,7 +60,7 @@ inline void take_three_input(float M[][4]) {
     int abcd = 0; // co-efficient tracker within row of 2D array
     scanf("%[^\n]", input_eq);
     remove_all_spaces(input_eq);
-    printf("%s\n", input_eq);
+    // printf("%s\n", input_eq);
 
     int prev_idx = 0, str_len = strlen(input_eq);
     /* prev_idx points starting of a substring holding co-efficient*/

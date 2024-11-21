@@ -1,4 +1,5 @@
 #include "../header/NumericalMethodsHeaderKaziRifat.h"
+#include <cstdio>
 
 /* EXAMPLE
 Basic Gauss Example
@@ -10,6 +11,7 @@ Gauss Jordan Example
 2x1+4x2-6x3=-8
 x1+3x2+x3=10
 2x1-4x2-2x3=-12
+// ISSUE: same eq ulta kore input deoay kaj korse na
 */
 
 float M[3][4]; /*coEfficientMatrix[num_equations][num_coEfficients]*/
@@ -34,7 +36,8 @@ void basic_gauss_operation() {
       for (int k = a; k <= d; k++) {
         M[j][k] = M[i][k] - (factor * M[j][k]);
       }
-      // print_three_equations(); /*for debugging purpose*/
+      // print_three_equations(M); /*for debugging purpose*/
+      // printf("\n");
     }
   }
 
