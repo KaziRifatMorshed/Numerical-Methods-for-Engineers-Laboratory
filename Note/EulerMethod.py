@@ -4,6 +4,7 @@ import re
 
 class EulerMethod:
     input_equation: str = ""
+    x_first: float = 0
     y_first: float = 0
     y_prev: float = 0
     end: float = 0
@@ -23,10 +24,12 @@ class EulerMethod:
         # I need to use stack based implementation for parenthesis
 
     def take_input(self) -> None:
-        self.input_equation = input("Please enter the equation: ")
+        print("Please enter the equation: dy/dx : ")
+        self.input_equation = input()
         self.input_equation = self.input_equation.replace(" ", "")
         self.h = float(input("input h : "))
-        self.y_first = float(input("input y_first (or, simply y(1) ) = "))
+        self.x_first = float(input("input x_first = "))
+        self.y_first = float(input("input y_first = "))
         self.end = float(input("input end : "))
 
     def print_input_equation(self) -> None:
@@ -170,15 +173,16 @@ class EulerMethod:
         for p in polynomials_one:
             # print("\n", p)
             regex_value1 = re.findall(re.compile(r"[+-]?\d*x"), p)
-            # print("regex_value1 = ", regex_value1)
+            # print("regex_value1 = ", regex_value1")
             coeff = 1 if not regex_value1 else self.to_float(regex_value1[0][:-1])
-            # print("coeff = ", coeff)
+            # print("coeff = ", coeff)")
             result += coeff * v
             str = str.replace(p, "")
         # end for
         # END PROCESS X
         # ==============================================================================
-        result += self.to_float(str)
+        # result += self.to_float(str)
+        result += eval(str)
         return result
 
     def f(self, v):
@@ -194,7 +198,7 @@ class EulerMethod:
 
     def perform_euler_method(self) -> None:
         i: float = 1.0
-        # for i in range(1, self.end + self.h, self.h):
+        # for i in range(self.x_first, self.end + self.h, self.h):
         while i <= self.end:
             if i == 1:
                 self.y_prev = self.y_first

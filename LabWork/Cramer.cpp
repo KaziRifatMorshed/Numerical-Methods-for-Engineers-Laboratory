@@ -1,10 +1,10 @@
 #include "../header/NumericalMethodsHeaderKaziRifat.h"
 #include <cstdio>
-
-// 4 x1 + 10 x2 + 30 x3 = 62
-// 10 x1 + 30 x2 + 100 x3 = 190
-// 30 x1 + 100 x2 + 354 x3 = 644
-
+/*
+4 x1 + 10 x2 + 30 x3 = 62
+10 x1 + 30 x2 + 100 x3 = 190
+30 x1 + 100 x2 + 354 x3 = 644
+*/
 float M[3][4];
 float D = 0.0f, D_x = 0.0f, D_y = 0.0f, D_z = 0.0f;
 float x1 = 0.0f, x2 = 0.0f, x3 = 0.0f;
